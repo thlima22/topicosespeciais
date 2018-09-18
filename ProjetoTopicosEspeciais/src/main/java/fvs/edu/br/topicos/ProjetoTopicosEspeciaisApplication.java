@@ -1,4 +1,4 @@
-tpackage fvs.edu.br.topicos;
+package fvs.edu.br.topicos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
