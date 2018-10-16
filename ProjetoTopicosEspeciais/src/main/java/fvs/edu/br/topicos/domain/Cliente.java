@@ -6,31 +6,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
+import fvs.edu.br.topicos.enums.TipoCliente;
+
 
 @Entity
-public class Cidade implements Serializable{
+public class Cliente implements Serializable{
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private String email;
+	private String cpfOuCnpj;
+	private TipoCliente tipo;
 	
-	@ManyToOne
-	@JoinColumn(name="estado_id")
-	private Estado estado;
-	
-	public Cidade() {
-		
+	public Cliente() {
+			
 	}
 
-	public Cidade(Integer id, String nome, Estado estado) {
+	public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.estado = estado;
+		this.email = email;
+		this.cpfOuCnpj = cpfOuCnpj;
+		this.tipo = tipo;
 	}
 
 	public Integer getId() {
@@ -49,12 +51,28 @@ public class Cidade implements Serializable{
 		this.nome = nome;
 	}
 
-	public Estado getEstado() {
-		return estado;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCpfOuCnpj() {
+		return cpfOuCnpj;
+	}
+
+	public void setCpfOuCnpj(String cpfOuCnpj) {
+		this.cpfOuCnpj = cpfOuCnpj;
+	}
+
+	public TipoCliente getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoCliente tipo) {
+		this.tipo = tipo;
 	}
 
 	@Override
@@ -73,7 +91,7 @@ public class Cidade implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cidade other = (Cidade) obj;
+		Cliente other = (Cliente) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -81,6 +99,7 @@ public class Cidade implements Serializable{
 			return false;
 		return true;
 	}
+
 	
 	
 }
