@@ -8,9 +8,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import fvs.edu.br.topicos.domain.Categoria;
+import fvs.edu.br.topicos.domain.Cidade;
 import fvs.edu.br.topicos.domain.Estado;
 import fvs.edu.br.topicos.domain.Produto;
 import fvs.edu.br.topicos.repositories.CategoriaRepository;
+import fvs.edu.br.topicos.repositories.CidadeRepository;
+import fvs.edu.br.topicos.repositories.EstadoRepository;
 import fvs.edu.br.topicos.repositories.ProdutoRepository;
 
 @SpringBootApplication
@@ -53,22 +56,6 @@ public class ProjetoTopicosEspeciaisApplication implements CommandLineRunner {
 		
 		catRepository.saveAll(Arrays.asList(cat1,cat2));
 		prodRepository.saveAll(Arrays.asList(p1, p2, p3));
-		
-		Estado est1 = new Estado(null. "Minas Gerais");
-		Estado est2 = new Estado (null, "Ceará");
-		
-		Cidade c1 = new Cidade(null, "Uberlandia, est1");
-		Cidade c2 = new Cidade(null, "Icó, est2");
-		Cidade c3 = new Cidade(null, "Juazeiro do Norte, est2");
-		
-		est1.getCidades().addAll(Arrays.asList(c1));
-		est1.getCidades().addAll(Arrays.asList(c2, c3));
-		
-		
-		EstadoRepository.saveAll(Arrays.asList(est1, est2));
-		CidadeRepository.saveAll(Arrays.sort(c1, c2, c3));
-
-				
 		
 	}
 }
